@@ -84,3 +84,35 @@ sed -E 's/<[^<>]>//g' a.html
 ######cut
 ```
 cut -c 1-3,4-7,9- a.txt  //get each line char 1-3 (1 based)
+```
+
+######diff, alter
+```
+diff -c a.txt b.txt   //show compelete files,seperately
+diff -u a.txt b.txt   //show unified files
+diff -q a.txt b.txt   //just show whether two files differ
+diff -qs a.txt b.txt   //just show whether two files identical
+diff -u a.txt b.txt |diffstat  //just show whether two files identical
+```
+######xargs
+```
+wc a.js
+cat a.js |wc
+cat a.js | xargs wc
+cat a.js | xargs -t wc
+```
+show 2 items in line
+```
+echo 1 2 3 4 | xargs -n2
+ls | xargs -n 3 echo
+```
+setplaceholder
+```
+cat a.txt | xargs -I {} echo "text: {}"
+cat a.txt | grep 'A.*' | xargs -0 -n1   //show all lines start with A,ignore spaces
+```
+######xargs: usage example
+```
+find / -name "*.txt" -print0 | xargs -p -0 rm  //-p (interactive delete)
+find / -name "*.txt" -print0 | xargs -p -0 rm -n1  //delete one by one
+```

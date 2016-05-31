@@ -1,4 +1,24 @@
 #### launixformac
+#####1 intro
+######The terminal
+```
+shift command u  //open utilities folder
+```
+
+#####5
+######utility
+```
+cal 12 2016  //june 2016 calander
+```
+#####history
+```
+!1
+```
+delete a history
+```
+history -d 29
+```
+
 #####7 Configuring your working
 ######setting command alias
 ```
@@ -115,4 +135,76 @@ cat a.txt | grep 'A.*' | xargs -0 -n1   //show all lines start with A,ignore spa
 ```
 find / -name "*.txt" -print0 | xargs -p -0 rm  //-p (interactive delete)
 find / -name "*.txt" -print0 | xargs -p -0 rm -n1  //delete one by one
+```
+#####9 Useful mac-only
+######Finder Inte
+```
+open folder/
+open -a calculator  //open app in that folder name that matches.
+open -a TextEdit a.txt
+```
+
+######clipboard
+```
+ls | pbcopy
+```
+paste:
+```
+pbpaste > output.txt
+```
+set alias
+```
+alias pbsort = 'pbpaste|sort|pbcopy'
+```
+
+set multiple clipboard
+```
+echo "a" |pbcopy -pboard general
+echo "b" |pbcopy -pboard second
+pbpaste   // a
+pbpaste -pboard second //b
+```
+######screencapture
+```
+screencapture -i output.jpg
+```
+```
+-C show corsor
+-t format
+-i interactive
+-T delay
+-P preview
+-M mail
+-m main monitor only
+-c capture to clipboard
+```
+######shutdown
+```
+shutdown -h r s   //-h 10 //10min
+-s 10 //10 sec
+```
+######voice
+```
+say "text" Vicki/Fred/Whister/Zarvox
+say -f a.txt -o a.aiff
+```
+######Spot: searching metadata
+```
+mdfind "new"
+```
+######System config Viewing
+```
+defaults read com.aaple.finder CopyPrecessWindowLocation
+```
+######System config :
+show "." files in Finder:
+```
+defaults write com.apple.finder AppleShowAllFiles -bool TRUE
+```
+
+Display Unix path in Finder
+```
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE
+```
+
 ```
